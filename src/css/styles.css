@@ -1,18 +1,231 @@
-/**
-  |============================
-  | include css partials with
-  | default @import url()
-  |============================
-*/
-/* Common styles */
+
 @import url('./reset.css');
 @import url('./base.css');
-@import url('./container.css');
-@import url('./animations.css');
 
-/* Sections style */
-@import url('./header.css');
-@import url('./vite-promo.css');
-@import url('./badges.css');
-@import url('./back-link.css');
-@import url('./footer.css');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: #2e2f42;
+  background: #ffffff;
+  font-family: "Montserrat", sans-serif;
+}
+
+.loader {
+  display: inline-block;
+  margin: 20px auto;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+main {
+  max-width: 1128px;
+  margin: 0 auto;
+  padding: 36px 16px 44px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input,
+button,
+textarea,
+select {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 32px; 
+}
+
+button {
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: 500;
+  outline: none;
+  font-size: 16px;
+}
+
+.form input[type='text'] {  
+  width: 272px;
+  height: 40px;
+  padding: 0 16px;
+  border: 1px solid #808080; 
+  border-radius: 4px; 
+  line-height: 1.5;
+  color: #2e2f42;
+  font-size: 16px;
+}
+
+.form input[type='text']::placeholder {
+  color: #808080;
+}
+
+.form input[type='text']:hover{
+  border: #000000 1px solid;
+}
+
+.form input[type='text']:focus{
+  border-color: #4e75ff;
+  outline: none
+}
+
+.form select[name='language'] {
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid #808080;
+  background: #ffffff;
+  color: #2e2f42;  
+}
+
+.form button[type='submit'],
+button[type='button'] {
+  height: 40px;
+  padding: 0 16px;
+  border: none;
+  background: #4e75ff;
+  color: #ffffff;  
+  line-height: 1.5;
+  transition: background 200ms ease;
+}
+
+.form button[type='submit']:hover,
+button[type='button']:hover {
+  background: #6c8cff;
+}
+
+button[type='button'] {
+  width: 125px;
+  margin-top: 32px;
+}
+
+.loader {
+  display: block;
+  margin: 0 auto 24px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.gallery-item {
+  border: 1px solid #808080;
+  border-radius: 0; /* у макеті зазвичай без округлень */
+  overflow: hidden;
+  background: #ffffff;
+  transition: box-shadow 200ms ease, transform 200ms ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-1px);
+  box-shadow: 0px 2px 8px rgba(46, 47, 66, 0.15);
+}
+
+.gallery-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.gallery-image {
+  width: 100%;
+  height: 200px;        
+  object-fit: cover;    
+}
+
+.end-message,
+.no-results{
+  margin-top: 32px;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #6c6c6c;
+  letter-spacing: 0.02em;
+}
+
+/* налаштування iziToast під стиль сайту */
+
+.iziToast {
+  box-shadow: 0px 2px 8px rgba(46, 47, 66, 0.15) !important;
+  border-radius: 4px !important;
+  font-family: monospace, 'Montserrat', sans-serif !important;
+}
+
+.iziToast.iziToast-color-red {
+  background: #ef4040 !important;
+  border-color: #b51b1b !important;
+}
+
+.iziToast.iziToast-color-red .iziToast-message,
+.iziToast.iziToast-color-red .iziToast-title {
+  color: #ffffff !important;
+}
+
+.info {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  padding: 8px 12px;
+  border-top: 1px solid #808080;
+  background: #ffffff;
+}
+
+.info-item {
+  margin: 0;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.2;
+  color: #2e2f42;
+}
+
+.info-item b {
+  display: block;
+  font-size: 12px;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+@media (max-width: 1024px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .form input[type='text'],
+  .form select[name='language'],
+  .form button[type='submit'] {
+    width: 100%;
+   } 
+
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+}

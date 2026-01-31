@@ -4,20 +4,36 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla App Template</title>
+    <title>goit-js-hw-12</title>
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <load src="./partials/header.html" icon-path="img/sprite.svg#logo" />
 
     <main>
-      <!-- Loads the specified .html file -->
-      <load src="./partials/vite-promo.html" />
-      <load src="./partials/badges.html" />
+
+      <form class="form">
+        <label>
+          <input type="text" name="search-text" placeholder="Search images..."  required>
+        </label>       
+        <button type="submit">Search</button>
+      </form>
+
+      <ul class="gallery"></ul>
+
+      <p class="no-results is-hidden">
+        Sorry, there are no images matching your search query. Please try again!
+      </p>
+
+      <p class="end-message is-hidden">
+        We're sorry, but you've reached the end of search results.
+      </p>
+      
+      <button type="button" class="load-more is-hidden">Load more</button>
+      <span class="loader is-hidden"></span>
+
     </main>
-
-    <load src="./partials/footer.html" />
-
+    
     <script type="module" src="./main.js"></script>
+
   </body>
 </html>
